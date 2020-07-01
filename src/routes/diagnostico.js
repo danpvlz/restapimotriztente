@@ -14,7 +14,6 @@ router.post('/', (req, res) => {
     (CURRENT_TIMESTAMP, ?, ?);
   `;
   
-
   mysqlConnection.query(query, [distrito, costo], (err, result, fields) => {
     if(!err) {
       let _id = result.insertId;
