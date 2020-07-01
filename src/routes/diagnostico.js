@@ -24,7 +24,6 @@ router.post('/', (req, res) => {
         values
         (?, ?);
         `;
-
         fallas.forEach(falla_id => {
             mysqlConnection.query(diagnosticodetalle_query, [_id,falla_id]);
         });
