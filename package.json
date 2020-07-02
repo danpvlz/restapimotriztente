@@ -7,7 +7,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "dev": "nodemon src/index.js",
-    "start": "node node src/index.js"
+    "start": "node src/index.js"
   },
   "keywords": [],
   "author": "",
