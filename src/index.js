@@ -16,7 +16,6 @@ app.use(express.json());
 app.use('/api/fallas-vehiculares', require('./routes/fallaVehicular'));
 app.use('/api/diagnostico', require('./routes/diagnostico'));
 app.use('/api/auxilio', require('./routes/auxilio'));
-app.use('/api/diagnostico-auxilio', require('./routes/diagnosticoAuxilio'));
 //app.use(require('./routes/employees'));
 
 // Starting the server
