@@ -1,11 +1,10 @@
-require('dotenv').config();
 const mysql = require('mysql');
 
 const mysqlConnection = mysql.createConnection({
-  host: process.env.BD_HOST,
-  user: process.env.BD_USER,
-  password: process.env.BD_PASSWORD,
-  database: process.env.BD_DATABASE,
+  host: process.env.BD_HOST || "localhost" ,
+  user: process.env.BD_USER || "root",
+  password: process.env.BD_PASSWORD || "",
+  database: process.env.BD_DATABASE || "bdvehiculos",
   multipleStatements: true
 });
 
