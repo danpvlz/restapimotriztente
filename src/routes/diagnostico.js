@@ -11,7 +11,7 @@ router.post('/', (req, res) => {
     insert into diagnostico 
     (fecha, distrito, costo)
     values
-    (CURRENT_TIMESTAMP, ?, ?);
+    (CONVERT_TZ(UTC_TIMESTAMP,'+00:00','-05:00'), ?, ?);
   `;
   
   mysqlConnection.query(query, [distrito, costo], (err, result, fields) => {
@@ -27,7 +27,7 @@ router.post('/', (req, res) => {
             mysqlConnection.query(diagnosticodetalle_query, [_id,falla_id]);
         });
      
-      res.json({status: 'Diagnostico Saved!', insertedId: _id});
+      res.json({status: 200, insertedId: _id});
     } else {
       console.log(err);
     }

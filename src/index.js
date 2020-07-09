@@ -1,4 +1,4 @@
-//require('dotenv').config();
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const app = express();
@@ -16,6 +16,8 @@ app.use(express.json());
 app.use('/api/fallas-vehiculares', require('./routes/fallaVehicular'));
 app.use('/api/diagnostico', require('./routes/diagnostico'));
 app.use('/api/auxilio', require('./routes/auxilio'));
+app.use('/api/auth', require('./routes/auth'));
+app.use('/api/solicitudes-auxilio', require('./routes/solicitudes'));
 //app.use(require('./routes/employees'));
 
 // Starting the server
