@@ -18,7 +18,7 @@ router.post('/', (req,res)=>{
     order by 1 desc;`;
     mysqlConnection.query(query, (err, result)=>{
         if(!err){
-            res.json({status: 200, data: result});
+            res.json({status: 200, data: result[1]});
         }else{console.log(err);}
     });
 });
