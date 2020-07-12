@@ -5,6 +5,7 @@ const mysqlConnection  = require('../database.js');
 
 router.post('/', (req,res)=>{
     let query = `
+    SET SESSION group_concat_max_len = 1000000;
     select d.fecha date_time, DATE_FORMAT(d.fecha, '%d-%m-%Y') fecha, DATE_FORMAT(d.fecha,'%h:%i %p') hora, a.cliente, a.contacto,di.distrito, d.costo, a.estado, 
     CONCAT("[",GROUP_CONCAT(distinct '{"idfalla":',fv.idFalla,', "falla": "', fv.descripcion,'" , "costo": ',fv.costo,', "causa": "',fv.causa,'"}' order by fv.idFalla),"]") fallas_detalle, sum(fv.costo) reparacion, d.costo-sum(fv.costo) asistencia,
     a.gpsLat, a.gpsLong, a.referencia, a.idAuxilio
