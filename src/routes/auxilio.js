@@ -19,7 +19,7 @@ router.post('/', (req, res) => {
   const {lat,long,cliente,contacto,diagnostico,referencia} = req.body;
   const query = `
     insert into auxilio(gpsLat, gpsLong, cliente, contacto, estado, idDiagnostico, referencia)
-    values(?,?,?,?,'PENDIENTE',?,?);
+    values(?,?,?,?,'Pendiente',?,?);
   `;
   mysqlConnection.query(query, [lat,long,cliente,contacto,diagnostico,referencia], (err, rows, fields) => {
     if(!err) {
