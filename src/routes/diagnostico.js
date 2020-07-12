@@ -23,8 +23,10 @@ router.post('/', (req, res) => {
         values
         (?, ?);
         `;
-        fallas.forEach(falla_id => {
+        fallas.forEach(falla_id => { 
+          if(falla_id!=999){
             mysqlConnection.query(diagnosticodetalle_query, [_id,falla_id]);
+          }
         });
      
       res.json({status: 200, insertedId: _id});
