@@ -25,4 +25,16 @@ router.post('/', (req, res) => {
   });  
 });
 
+router.post('/edit', (req, res) => {
+  const {_id, descripcion, costo,causa} = req.body;
+  let query = "update fallavehicular set descripcion=?, causa=?, costo=? where idFalla=?";
+  mysqlConnection.query(query, [descripcion,causa,costo,_id],(err, rows, fields) => {
+    if(!err) {
+      res.json({status: 200, message: 'Falla Updated!'});
+    } else {
+      console.log(err);
+    }
+  });  
+});
+
 module.exports = router;
