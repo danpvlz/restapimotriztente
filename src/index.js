@@ -19,6 +19,7 @@ app.use('/api/auxilio', require('./routes/auxilio'));
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/solicitudes-auxilio', require('./routes/solicitudes'));
 app.use('/api/usuario',require('./routes/users'));
+app.use('/api/distrito',require('./routes/distritos'));
 //app.use(require('./routes/employees'));
 
 // Starting the server
