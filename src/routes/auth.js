@@ -5,7 +5,7 @@ const mysqlConnection  = require('../database.js');
 
 router.post('/', (req,res)=>{
     const {user, pass} = req.body;
-    const query = "select nombre, rol from usuario where user=? and clave=md5(?)";
+    const query = "select idUsuario, nombre, rol from usuario where user=? and clave=md5(?)";
     mysqlConnection.query(query, [user,pass] , (err,result)=>{
         if(!err){
             res.json({status: 200, data: result});
