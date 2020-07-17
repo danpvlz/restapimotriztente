@@ -47,4 +47,16 @@ router.post('/actualizar-estado/', (req,res)=>{
     });
 });
 
+router.post('/delete', (req, res) => {
+    let {_id} = req.body;
+    let query = "delete from auxilio where idAuxilio=?;";
+    mysqlConnection.query(query, [_id] ,(err, rows, fields) => {
+        if(!err) {
+        res.json({status: 200, message: 'Solicitud Deleted!'});
+        } else {
+        console.log(err);
+        }
+    });  
+});
+
 module.exports = router;

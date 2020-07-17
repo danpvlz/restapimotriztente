@@ -52,6 +52,6 @@ router.post('/delete', (req, res) => {
         console.log(err);
         }
     });  
-    });
+});
 
 module.exports = router;
