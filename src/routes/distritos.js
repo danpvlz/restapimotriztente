@@ -24,9 +24,9 @@ router.get('/all', (req, res) => {
 }); 
 
 router.post('/edit', (req, res) => {
-    let {_id, costo} = req.body;
-    let query = "update distrito set costo=? where idDistrito=?;";
-    mysqlConnection.query(query, [costo,_id] ,(err, rows, fields) => {
+    let {_id, costo,estado} = req.body;
+    let query = "update distrito set costo=?, estado=? where idDistrito=?;";
+    mysqlConnection.query(query, [costo,estado,_id] ,(err, rows, fields) => {
         if(!err) {
         res.json({status: 200, message: 'Distrito Updated!'});
         } else {
