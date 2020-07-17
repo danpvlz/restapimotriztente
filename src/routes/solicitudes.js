@@ -31,7 +31,7 @@ router.post('/actualizar-estado/', (req,res)=>{
             estado = "En camino";
             break;
         case 2:
-            estado = "Atención exitosa";
+            estado = "Facturado";
             break;
         case 3:
             estado = "Cancelado";
